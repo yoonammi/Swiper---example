@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>슬라이더 01 - 헤더 컬러 변경</title>
+
+	<!-- vender(외부 스크립트) -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	<!-- css -->
+	<!-- 리셋파일이 제일 위로 올라와야 함 -->
+	<link rel="stylesheet" href="./assets/css/reset.min.css">
+	<link rel="stylesheet" href="./assets/css/Swiper-01.min.css">
+</head>
+<body>
+
+	<div id="wrap">
+
+		<header id="header" class="a">
+			<div class="container">
+				<div id="header-inner">
+					<h1 class="tit">슬라이더 01 - 헤더 컬러 변경</h1>
+				</div>
+			</div>
+		</header>
+
+		<main id="main">
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" data-header-type="light">slider 01</div>
+					<div class="swiper-slide" data-header-type="dark">slider 02</div>
+					<div class="swiper-slide" data-header-type="light">slider 03</div>
+					<div class="swiper-slide" data-header-type="dark">slider 04</div>
+					<div class="swiper-slide" data-header-type="light">slider 05</div>
+				</div>
+			</div>
+
+		</main>
+
+	</div>
+
+	<script>
+
+		const header = document.querySelector('#header');
+		let headerOldClass; // a
+
+		function changeheadercolor(swiper) {
+			let activeSlider = swiper.slides[swiper.activeIndex];
+			let headerClass= activeSlider.dataset.headerType;
+
+			// const header = document.querySelector('#header');
+			header.removeAttribute('class');
+			header.classList.add( headerOldClass, headerClass );
+		}
+
+		const mainSlider = new Swiper('.swiper-container', {
+			slidesPerView: 1,
+			on: {
+				init: function(swiper) {
+					headerOldClass = header.className; // a
+
+					changeheadercolor(swiper);
+				},
+				slideChange: function(swiper) {
+					changeheadercolor(swiper);
+
+					// console.log(this);
+					// console.log(mainSlider);
+
+					// 현재 active 된 슬라이더의 숫자를 가져온다.
+					// console.log(swiper.activeIndex);
+
+					// 슬라이더의 전체 슬라이드를 가져온다. (배열)
+					// console.log(swiper.slides);
+
+					// 0번째 슬라이드의 마크업을 가져온다.
+					// console.log(swiper.slides[swiper.activeIndex]);
+
+					// console.log(activeSlider.getAttribute('data-header-type'));
+					// console.log(activeSlider.dataset.headerType); // dataset 쓸려면 카멜로 작성해야함
+
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+}
+#header-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+}
+#header.light {
+  color: #fff;
+}
+#header.dark {
+  color: #000;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
+
+.swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  height: 100vh;
+}
+
+[data-header-type=light] {
+  color: #fff;
+  background-color: #000;
+}
+
+[data-header-type=dark] {
+  color: #000;
+  background-color: #f1f1f1;
+}/*# sourceMappingURL=Swiper-01.min.css.map */
